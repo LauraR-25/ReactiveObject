@@ -3,24 +3,22 @@ class TrafficLight {
         const LightClass = typeof Light !== "undefined" ? Light : globalThis.Light;
         
         if (typeof LightClass !== "function") {
-            throw new Error("TrafficLight necesita que Light esté disponible antes de instanciarse.");
+            throw new Error("TrafficLight necesita Light disponible");
         }
         this.red = new LightClass("luz-roja", "red", true);
         this.yellow = new LightClass("luz-amarilla", "yellow", false);
         this.green = new LightClass("luz-verde", "green", false);
         this._lights = [this.red, this.yellow, this.green];
 
-        this._renderLight = renderLightFn || typeof updateLightOnScreen === "function" 
-            ? updateLightOnScreen : globalThis.updateLightOnScreen;
+        this._renderLight = renderLightFn || (typeof updateLightOnScreen === "function" 
+            ? updateLightOnScreen : globalThis.updateLightOnScreen);
             
-        this._renderIndicator = renderIndicatorFn || typeof updateIndicatorText === "function"
-            ? updateIndicatorText : globalThis.updateIndicatorText;
+        this._renderIndicator = renderIndicatorFn || (typeof updateIndicatorText === "function"
+            ? updateIndicatorText : globalThis.updateIndicatorText);
 
         this._lights.forEach((light) => {
             light.subscribe((snapshot) => {
                 if (this._renderLight) this._renderLight(snapshot);
-                
-                // Si la luz que notificó se encendió, actualizamos el indicador de texto
                 if (snapshot.isOn && this._renderIndicator) {
                     this._renderIndicator(snapshot.color);
                 }

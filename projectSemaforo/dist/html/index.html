@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semáforo Reactivo - Base</title>
+    <title>Semáforo</title>
+    <link rel="stylesheet" href="../css/index.css">
 </head>
-
 <body>
+    <div class="wrapper">
+        <div class="semaforo">
+            <div class="semaforo-titulo">
+                SEMÁFORO
+                <span class="titulo-barra"></span>
+            </div>
 
-    <div id="contenedor-semaforo">
+            <div class="semaforo-cuerpo">
+                <div class="semaforo-poste"></div>
+                <div class="semaforo-luces">
+                    <div id="luz-roja" class="luz roja"></div>
+                    <div id="luz-amarilla" class="luz amarilla"></div>
+                    <div id="luz-verde" class="luz verde"></div>
+                </div>
+                <div class="semaforo-base"></div>
+            </div>
 
-        <div id="luz-roja">Luz Roja</div>
-        <div id="luz-amarilla">Luz Amarilla</div>
-        <div id="luz-verde">Luz Verde</div>
+            <div class="semaforo-mensaje">
+                <p id="indicador-texto">DETENGASE</p>
+            </div>
 
+            <button id="btn-cambiar-estado" class="semaforo-boton">
+                CAMBIAR
+            </button>
+        </div>
     </div>
-
-    <p id="indicador-texto">¡Deténgase!</p>
-
-    <button id="btn-cambiar-estado">Cambiar Luz</button>
-
-    <script src="../../src/components/Light.js"></script>
-    <script src="../../src/components/render.js"></script>
-    <script src="../../src/components/TrafficLight.js"></script>
-    <script src="../../src/app.js"></script>
+<script src="../../src/components/Light.js"></script>
+<script src="../../src/components/render.js"></script>
+<script src="../../src/components/TrafficLight.js"></script>
+<script src="../../src/app.js"></script>
 </body>
-
 </html>

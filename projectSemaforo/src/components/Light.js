@@ -10,16 +10,12 @@ class Light {
                 if (prop === "isOn") {
                     const nextValue = Boolean(value);
                     const previousValue = target._isOn;
-
                     target._isOn = nextValue;
-
                     if (previousValue !== nextValue) {
                         target._notify();
                     }
-
                     return true;
                 }
-
                 target[prop] = value;
                 return true;
             },
@@ -27,7 +23,6 @@ class Light {
                 if (prop === "isOn") {
                     return target._isOn;
                 }
-
                 return Reflect.get(target, prop, receiver);
             }
         });
@@ -49,9 +44,7 @@ class Light {
         if (typeof callback !== "function") {
             throw new TypeError("Light.subscribe espera una funcion.");
         }
-
         this._subscribers.add(callback);
-
         return () => {
             this._subscribers.delete(callback);
         };
@@ -59,7 +52,6 @@ class Light {
 
     _notify() {
         const snapshot = this.toJSON();
-
         this._subscribers.forEach((callback) => {
             callback(snapshot);
         });
