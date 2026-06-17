@@ -3,39 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semáforo</title>
+    <title>Entero Reactivo — Patrón Observer + Proxy</title>
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
     <div class="wrapper">
-        <div class="semaforo">
-            <div class="semaforo-titulo">
-                SEMÁFORO
-                <span class="titulo-barra"></span>
-            </div>
 
-            <div class="semaforo-cuerpo">
-                <div class="semaforo-poste"></div>
-                <div class="semaforo-luces">
-                    <div id="luz-roja" class="luz roja"></div>
-                    <div id="luz-amarilla" class="luz amarilla"></div>
-                    <div id="luz-verde" class="luz verde"></div>
-                </div>
-                <div class="semaforo-base"></div>
-            </div>
-
-            <div class="semaforo-mensaje">
-                <p id="indicador-texto">DETENGASE</p>
-            </div>
-
-            <button id="btn-cambiar-estado" class="semaforo-boton">
-                CAMBIAR
-            </button>
+        <!-- Título principal -->
+        <div class="titulo-principal">
+            ENTERO REACTIVO
+            <span class="titulo-barra"></span>
         </div>
+
+        <!-- Subtítulo explicativo -->
+        <p class="subtitulo">
+            Patrón Observer + Proxy &mdash; Si <strong>X</strong> o <strong>Y</strong> mutan, <strong>Z</strong> se recalcula automáticamente.
+        </p>
+
+        <!-- Panel de Variables X e Y -->
+        <div class="variables-panel">
+
+            <!-- Variable X -->
+            <div class="variable-card">
+                <span class="variable-etiqueta">Variable X</span>
+                <div class="variable-controles">
+                    <button id="btn-x-decrementar" class="btn-control btn-menos" aria-label="Decrementar X">&minus;</button>
+                    <span id="valor-x" class="variable-valor">5</span>
+                    <button id="btn-x-incrementar" class="btn-control btn-mas" aria-label="Incrementar X">&plus;</button>
+                </div>
+            </div>
+
+            <!-- Signo + central -->
+            <div class="operador-central">+</div>
+
+            <!-- Variable Y -->
+            <div class="variable-card">
+                <span class="variable-etiqueta">Variable Y</span>
+                <div class="variable-controles">
+                    <button id="btn-y-decrementar" class="btn-control btn-menos" aria-label="Decrementar Y">&minus;</button>
+                    <span id="valor-y" class="variable-valor">3</span>
+                    <button id="btn-y-incrementar" class="btn-control btn-mas" aria-label="Incrementar Y">&plus;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultado Z -->
+        <div class="resultado-panel">
+            <span class="resultado-etiqueta">Resultado Z = X + Y</span>
+            <span id="valor-z" class="resultado-valor">8</span>
+        </div>
+
     </div>
-<script src="../../src/components/Light.js"></script>
-<script src="../../src/components/render.js"></script>
-<script src="../../src/components/TrafficLight.js"></script>
+
+<script src="../../src/components/EnteroReactivo.js"></script>
 <script src="../../src/app.js"></script>
 </body>
 </html>
