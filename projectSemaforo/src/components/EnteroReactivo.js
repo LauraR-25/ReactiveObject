@@ -1,6 +1,6 @@
 class EnteroReactivo {
     constructor(valorInicial) {
-        this._value = parseInt(valorInicial);
+        this._value = this._sanitizeValue(valorInicial);
         this._subscribers = new Set();
 
         return new Proxy(this, {
@@ -13,11 +13,11 @@ class EnteroReactivo {
 
             set: (target, prop, value) => {
                 if (prop === "value") {
-                    const nuevoValor = parseInt(value);
+                    const valorFinal = target._sanitizeValue(value);
                     const valorAnterior = target._value;
-                    target._value = nuevoValor;
+                    target._value = valorFinal;
 
-                    if (valorAnterior !== nuevoValor) {
+                    if (valorAnterior !== valorFinal) {
                         target._notify();
                     }
                     return true;
@@ -26,6 +26,14 @@ class EnteroReactivo {
                 return true;
             }
         });
+    }
+
+    _sanitizeValue(value) {
+        const parsed = parseInt(value);
+        if (isNaN(parsed)) {
+            return 0;
+        }
+        return parsed;
     }
 
     subscribe(callback) {

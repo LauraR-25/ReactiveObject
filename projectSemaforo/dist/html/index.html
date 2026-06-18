@@ -3,59 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entero Reactivo — Patrón Observer + Proxy</title>
+    <title>Entero Reactivo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
     <div class="wrapper">
 
-        <!-- Título principal -->
         <div class="titulo-principal">
             ENTERO REACTIVO
             <span class="titulo-barra"></span>
         </div>
 
-        <!-- Subtítulo explicativo -->
-        <p class="subtitulo">
-            Patrón Observer + Proxy &mdash; Si <strong>X</strong> o <strong>Y</strong> mutan, <strong>Z</strong> se recalcula automáticamente.
-        </p>
-
-        <!-- Panel de Variables X e Y -->
         <div class="variables-panel">
 
-            <!-- Variable X -->
             <div class="variable-card">
-                <span class="variable-etiqueta">Variable X</span>
+                <span class="variable-etiqueta">X</span>
                 <div class="variable-controles">
-                    <button id="btn-x-decrementar" class="btn-control btn-menos" aria-label="Decrementar X">&minus;</button>
-                    <span id="valor-x" class="variable-valor">5</span>
-                    <button id="btn-x-incrementar" class="btn-control btn-mas" aria-label="Incrementar X">&plus;</button>
+                    <button id="btn-x-decrementar" class="btn-control btn-menos">&minus;</button>
+                    <input id="input-x" type="number" class="variable-input" value="5" step="1" placeholder="0">
+                    <button id="btn-x-incrementar" class="btn-control btn-mas">&plus;</button>
                 </div>
             </div>
 
-            <!-- Signo + central -->
             <div class="operador-central">+</div>
 
-            <!-- Variable Y -->
             <div class="variable-card">
-                <span class="variable-etiqueta">Variable Y</span>
+                <span class="variable-etiqueta">Y</span>
                 <div class="variable-controles">
-                    <button id="btn-y-decrementar" class="btn-control btn-menos" aria-label="Decrementar Y">&minus;</button>
-                    <span id="valor-y" class="variable-valor">3</span>
-                    <button id="btn-y-incrementar" class="btn-control btn-mas" aria-label="Incrementar Y">&plus;</button>
+                    <button id="btn-y-decrementar" class="btn-control btn-menos">&minus;</button>
+                    <input id="input-y" type="number" class="variable-input" value="3" step="1" placeholder="0">
+                    <button id="btn-y-incrementar" class="btn-control btn-mas">&plus;</button>
                 </div>
             </div>
         </div>
 
-        <!-- Resultado Z -->
         <div class="resultado-panel">
-            <span class="resultado-etiqueta">Resultado Z = X + Y</span>
+            <span class="resultado-etiqueta">Z = X + Y</span>
             <span id="valor-z" class="resultado-valor">8</span>
         </div>
 
     </div>
 
-<script src="../../src/components/EnteroReactivo.js"></script>
-<script src="../../src/app.js"></script>
+    <script src="../../src/components/EnteroReactivo.js"></script>
+    <script src="../../src/app.js"></script>
 </body>
 </html>
