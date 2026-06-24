@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const x = new EnteroReactivo(5);
-    const y = new EnteroReactivo(3);
+    const x = new ReactiveInteger(5);
+    const y = new ReactiveInteger(3);
 
     const inputX = document.getElementById("input-x");
     const inputY = document.getElementById("input-y");
     const valorZ = document.getElementById("valor-z");
 
-    function render() {
+    const render = () => {
         const z = x.value + y.value;
         inputX.value = x.value;
         inputY.value = y.value;
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         adjustInputWidth(inputY);
     }
 
-    function adjustInputWidth(input) {
+    const adjustInputWidth = (input) => {
         const value = input.value;
         const length = String(value).length;
         let newWidth;
@@ -36,18 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
         input.style.fontSize = length > 12 ? '1rem' : input.style.fontSize;
     }
 
-    function limitInput(input, maxDigits) {
+    const limitInput = (input, maxDigits) => {
         let value = input.value;
         if (value.length > maxDigits) {
             value = value.slice(0, maxDigits);
             input.value = value;
         }
         return value;
-    }
+    };
 
-    x.subscribe(render);
-    y.subscribe(render);
-    render();
+    effect(render);
 
     inputX.addEventListener("input", (e) => {
         let valor = e.target.value;
