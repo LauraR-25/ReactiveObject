@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entero Reactivo</title>
+    <title>Reactive Integer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
@@ -12,37 +12,37 @@
 <body>
     <div class="wrapper">
 
-        <div class="titulo-principal">
-            ENTERO REACTIVO
-            <span class="titulo-barra"></span>
+        <div class="main-title">
+            REACTIVE INTEGER
+            <span class="title-bar"></span>
         </div>
 
         <div class="variables-panel">
 
             <div class="variable-card">
-                <span class="variable-etiqueta">X</span>
-                <div class="variable-controles">
-                    <button id="btn-x-decrementar" class="btn-control btn-menos">&minus;</button>
+                <span class="variable-label">X</span>
+                <div class="variable-controls">
+                    <button id="btn-x-decrement" class="control-btn btn-minus">&minus;</button>
                     <input id="input-x" type="number" class="variable-input" value="5" step="1" placeholder="0">
-                    <button id="btn-x-incrementar" class="btn-control btn-mas">&plus;</button>
+                    <button id="btn-x-increment" class="control-btn btn-plus">&plus;</button>
                 </div>
             </div>
 
-            <div class="operador-central">+</div>
+            <div class="central-operator">+</div>
 
             <div class="variable-card">
-                <span class="variable-etiqueta">Y</span>
-                <div class="variable-controles">
-                    <button id="btn-y-decrementar" class="btn-control btn-menos">&minus;</button>
+                <span class="variable-label">Y</span>
+                <div class="variable-controls">
+                    <button id="btn-y-decrement" class="control-btn btn-minus">&minus;</button>
                     <input id="input-y" type="number" class="variable-input" value="3" step="1" placeholder="0">
-                    <button id="btn-y-incrementar" class="btn-control btn-mas">&plus;</button>
+                    <button id="btn-y-increment" class="control-btn btn-plus">&plus;</button>
                 </div>
             </div>
         </div>
 
-        <div class="resultado-panel">
-            <span class="resultado-etiqueta">Z = X + Y</span>
-            <span id="valor-z" class="resultado-valor">8</span>
+        <div class="result-panel">
+            <span class="result-label">Z = X + Y</span>
+            <span id="value-z" class="result-value">8</span>
         </div>
 
     </div>

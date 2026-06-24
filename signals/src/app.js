@@ -5,13 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const inputX = document.getElementById("input-x");
     const inputY = document.getElementById("input-y");
-    const valorZ = document.getElementById("valor-z");
+    const valueZ = document.getElementById("value-z"); 
 
     const render = () => {
         const z = x.value + y.value;
         inputX.value = x.value;
         inputY.value = y.value;
-        valorZ.textContent = z;
+        valueZ.textContent = z;
         adjustInputWidth(inputX);
         adjustInputWidth(inputY);
     }
@@ -48,15 +48,15 @@ document.addEventListener("DOMContentLoaded", () => {
     effect(render);
 
     inputX.addEventListener("input", (e) => {
-        let valor = e.target.value;
-        valor = limitInput(e.target, 15);
-        if (valor === "") {
+        let value = e.target.value;
+        value = limitInput(e.target, 15);
+        if (value === "") {
             x.value = 0;
         } else {
-            const num = parseInt(valor);
+            const num = parseInt(value);
             if (!isNaN(num)) {
                 x.value = num;
-            } else if (valor !== "" && valor !== "-") {
+            } else if (value !== "" && value !== "-") {
                 const currentValue = x.value;
                 e.target.value = currentValue;
             }
@@ -65,15 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     inputY.addEventListener("input", (e) => {
-        let valor = e.target.value;
-        valor = limitInput(e.target, 15);
-        if (valor === "") {
+        let value = e.target.value;
+        value = limitInput(e.target, 15);
+        if (value === "") {
             y.value = 0;
         } else {
-            const num = parseInt(valor);
+            const num = parseInt(value);
             if (!isNaN(num)) {
                 y.value = num;
-            } else if (valor !== "" && valor !== "-") {
+            } else if (value !== "" && value !== "-") {
                 const currentValue = y.value;
                 e.target.value = currentValue;
             }
@@ -95,19 +95,19 @@ document.addEventListener("DOMContentLoaded", () => {
         adjustInputWidth(inputY);
     });
 
-    document.getElementById("btn-x-incrementar").addEventListener("click", () => {
+    document.getElementById("btn-x-increment").addEventListener("click", () => {
         x.value++;
     });
 
-    document.getElementById("btn-x-decrementar").addEventListener("click", () => {
+    document.getElementById("btn-x-decrement").addEventListener("click", () => {
         x.value--;
     });
 
-    document.getElementById("btn-y-incrementar").addEventListener("click", () => {
+    document.getElementById("btn-y-increment").addEventListener("click", () => {
         y.value++;
     });
 
-    document.getElementById("btn-y-decrementar").addEventListener("click", () => {
+    document.getElementById("btn-y-decrement").addEventListener("click", () => {
         y.value--;
     });
 });

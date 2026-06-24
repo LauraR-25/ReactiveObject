@@ -51,7 +51,7 @@ body::after {
     z-index: 1;
 }
 
-.titulo-principal {
+.main-title {
     text-align: center;
     font-size: 2.2rem;
     font-weight: 800;
@@ -63,7 +63,7 @@ body::after {
     text-shadow: 0 2px 20px rgba(107, 90, 205, 0.3);
 }
 
-.titulo-barra {
+.title-bar {
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -104,7 +104,7 @@ body::after {
     box-shadow: 0 15px 40px -10px rgba(46, 42, 102, 0.4);
 }
 
-.variable-etiqueta {
+.variable-label {
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 4px;
@@ -117,7 +117,7 @@ body::after {
     white-space: nowrap;
 }
 
-.variable-controles {
+.variable-controls {
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -166,7 +166,7 @@ body::after {
     color: rgba(242, 240, 255, 0.25);
 }
 
-.btn-control {
+.control-btn {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -183,35 +183,35 @@ body::after {
     flex-shrink: 0;
 }
 
-.btn-control:active {
+.control-btn:active {
     transform: scale(0.92);
 }
 
-.btn-mas {
+.btn-plus {
     background: linear-gradient(135deg, #6B5ACD, #A79BEE);
     color: #F2F0FF;
     box-shadow: 0 4px 15px rgba(107, 90, 205, 0.3);
 }
 
-.btn-mas:hover {
+.btn-plus:hover {
     transform: scale(1.08);
     box-shadow: 0 6px 25px rgba(107, 90, 205, 0.5);
     background: linear-gradient(135deg, #7B6ADD, #B7ABFE);
 }
 
-.btn-menos {
+.btn-minus {
     background: linear-gradient(135deg, #2E2A66, #6B5ACD);
     color: #F2F0FF;
     box-shadow: 0 4px 15px rgba(46, 42, 102, 0.3);
 }
 
-.btn-menos:hover {
+.btn-minus:hover {
     transform: scale(1.08);
     box-shadow: 0 6px 25px rgba(46, 42, 102, 0.5);
     background: linear-gradient(135deg, #3E3A76, #7B6ADD);
 }
 
-.operador-central {
+.central-operator {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -223,7 +223,7 @@ body::after {
     min-width: 40px;
 }
 
-.resultado-panel {
+.result-panel {
     background: rgba(242, 240, 255, 0.06);
     border-radius: 2rem;
     padding: 2rem;
@@ -235,13 +235,13 @@ body::after {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.resultado-panel:hover {
+.result-panel:hover {
     background: rgba(242, 240, 255, 0.1);
     border-color: rgba(167, 155, 238, 0.2);
     box-shadow: 0 15px 40px -10px rgba(46, 42, 102, 0.3);
 }
 
-.resultado-etiqueta {
+.result-label {
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 4px;
@@ -253,7 +253,7 @@ body::after {
     border: 1px solid rgba(242, 240, 255, 0.06);
 }
 
-.resultado-valor {
+.result-value {
     font-size: 4.5rem;
     font-weight: 800;
     line-height: 1.2;
@@ -273,7 +273,7 @@ body::after {
         max-width: 100%;
     }
 
-    .titulo-principal {
+    .main-title {
         font-size: 1.6rem;
         letter-spacing: 6px;
         margin-bottom: 2rem;
@@ -299,32 +299,32 @@ body::after {
         padding: 0 0.4rem;
     }
 
-    .btn-control {
+    .control-btn {
         width: 34px;
         height: 34px;
         font-size: 1.1rem;
     }
 
-    .operador-central {
+    .central-operator {
         font-size: 1.5rem;
         min-width: 30px;
     }
 
-    .resultado-panel {
+    .result-panel {
         padding: 1.5rem;
         border-radius: 1.6rem;
     }
 
-    .resultado-valor {
+    .result-value {
         font-size: 3.5rem;
     }
 
-    .resultado-etiqueta {
+    .result-label {
         font-size: 0.65rem;
         letter-spacing: 3px;
     }
 
-    .variable-etiqueta {
+    .variable-label {
         font-size: 0.6rem;
         letter-spacing: 3px;
     }
@@ -336,7 +336,7 @@ body::after {
         border-radius: 1.5rem;
     }
 
-    .titulo-principal {
+    .main-title {
         font-size: 1.2rem;
         letter-spacing: 4px;
         margin-bottom: 1.5rem;
@@ -347,7 +347,7 @@ body::after {
         gap: 0.8rem;
     }
 
-    .operador-central {
+    .central-operator {
         font-size: 1.3rem;
         min-width: auto;
         padding: 0.2rem 0;
@@ -361,7 +361,7 @@ body::after {
         border-radius: 1.2rem;
     }
 
-    .variable-etiqueta {
+    .variable-label {
         width: 100%;
         text-align: center;
     }
@@ -374,17 +374,17 @@ body::after {
         padding: 0 0.3rem;
     }
 
-    .btn-control {
+    .control-btn {
         width: 32px;
         height: 32px;
         font-size: 1rem;
     }
 
-    .resultado-valor {
+    .result-value {
         font-size: 2.8rem;
     }
 
-    .resultado-panel {
+    .result-panel {
         padding: 1.2rem;
         border-radius: 1.2rem;
     }

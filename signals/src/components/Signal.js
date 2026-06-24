@@ -36,5 +36,3 @@ const effect = (callback) => {
     };
     runEffect();
 }
-
-// Sin export — se usan como globales cargadas por <script> en orden
