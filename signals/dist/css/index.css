@@ -1,3 +1,4 @@
+/* RESET BÁSICO */
 * {
     margin: 0;
     padding: 0;
@@ -6,150 +7,218 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #2E2A66 0%, #6B5ACD 40%, #A79BEE 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    padding: 1.5rem;
+    padding: 2rem;
+    overflow-x: hidden;
     position: relative;
-    overflow: hidden;
+    
+    /* ILUMINACIÓN DE LA MESA */
+    background: radial-gradient(circle at 50% 20%, #e8dcc4 0%, #c4a97f 60%, #8b7355 100%);
+    
+    /* FUENTES NATIVAS ESTILO MANUSCRITO */
+    font-family: 'Segoe Print', 'Bradley Hand', 'Chalkboard SE', 'Comic Sans MS', cursive, sans-serif;
 }
 
+/* =========================================
+   ARTE CSS: ELEMENTOS DEL ESCRITORIO
+   ========================================= */
+
+/* 1. LÁPIZ AMARILLO (En la esquina superior derecha) */
 body::before {
     content: '';
     position: absolute;
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, rgba(167, 155, 238, 0.15) 0%, transparent 70%);
-    top: -300px;
-    right: -300px;
-    border-radius: 50%;
+    top: 12%;
+    right: 8%;
+    width: 220px;
+    height: 16px;
+    transform: rotate(35deg);
+    /* Dibujamos las partes del lápiz con degradados: Punta, madera, cuerpo, metal y borrador */
+    background: linear-gradient(to right,
+        #2c2825 0px, #2c2825 10px,   
+        #e6c89c 10px, #e6c89c 35px, 
+        #f5b700 35px, #f5b700 185px, 
+        #a0a0a0 185px, #a0a0a0 200px, 
+        #f87171 200px, #f87171 220px 
+    );
+    /* Recortamos la punta en forma de triángulo */
+    clip-path: polygon(0 50%, 35px 0, 100% 0, 100% 100%, 35px 100%);
+    /* Sombra proyectada en la mesa */
+    filter: drop-shadow(8px 10px 5px rgba(0,0,0,0.25));
+    z-index: 0;
 }
 
+/* 2. REGLA TRANSPARENTE (En la esquina inferior izquierda) */
 body::after {
     content: '';
     position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(214, 208, 255, 0.1) 0%, transparent 70%);
-    bottom: -200px;
-    left: -200px;
-    border-radius: 50%;
+    bottom: 15%;
+    left: 5%;
+    width: 280px;
+    height: 40px;
+    transform: rotate(-15deg);
+    background-color: rgba(167, 243, 208, 0.35); /* Plástico verde translúcido */
+    border: 1px solid rgba(167, 243, 208, 0.8);
+    border-radius: 3px;
+    box-shadow: 6px 8px 12px rgba(0,0,0,0.15);
+    /* Marcas de centímetros y milímetros dibujadas con rayas */
+    background-image: 
+        repeating-linear-gradient(90deg, rgba(0,0,0,0.6) 0px, rgba(0,0,0,0.6) 2px, transparent 2px, transparent 40px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,0.4) 0px, rgba(0,0,0,0.4) 1px, transparent 1px, transparent 10px);
+    background-size: 100% 40%, 100% 20%;
+    background-repeat: no-repeat, no-repeat;
+    background-position: top left, top left;
+    z-index: 0;
 }
 
+/* =========================================
+   LA LIBRETA CENTRAL
+   ========================================= */
 .wrapper {
-    max-width: 640px;
-    width: 100%;
-    background: rgba(242, 240, 255, 0.08);
-    backdrop-filter: blur(30px);
-    border-radius: 2.8rem;
-    padding: 2.8rem;
-    border: 1px solid rgba(242, 240, 255, 0.12);
-    box-shadow: 0 50px 100px -20px rgba(46, 42, 102, 0.6);
     position: relative;
+    max-width: 650px;
+    width: 100%;
+    background-color: #faf8f2; 
+    padding: 3rem 2rem 4rem 4.5rem; 
+    border-radius: 8px 15px 15px 8px;
+    
+    /* LÍNEAS DEL PAPEL Y MARGEN ROJO */
+    background-image: 
+        linear-gradient(90deg, transparent 3.5rem, #ff9999 3.5rem, #ff9999 3.6rem, transparent 3.6rem), 
+        repeating-linear-gradient(to bottom, transparent, transparent 31px, #b0c4de 31px, #b0c4de 32px); 
+    
+    box-shadow: 
+        15px 15px 25px rgba(0, 0, 0, 0.25), 
+        5px 5px 0px #e1d8c9, 
+        10px 10px 0px #d4cabb; 
     z-index: 1;
 }
 
+/* AGUJEROS DEL PAPEL */
+.wrapper::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 40px;
+    width: 12px;
+    height: 12px;
+    background-color: #2a2520; 
+    border-radius: 50%;
+    box-shadow: 
+        0 32px #2a2520, 0 64px #2a2520, 0 96px #2a2520, 0 128px #2a2520, 
+        0 160px #2a2520, 0 192px #2a2520, 0 224px #2a2520, 0 256px #2a2520, 
+        0 288px #2a2520, 0 320px #2a2520, 0 352px #2a2520, 0 384px #2a2520,
+        0 416px #2a2520, 0 448px #2a2520, 0 480px #2a2520;
+}
+
+/* ANILLOS METÁLICOS */
+.wrapper::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 38px;
+    width: 20px;
+    height: 6px;
+    background: linear-gradient(to bottom, #888, #ddd, #555);
+    border-radius: 10px;
+    box-shadow: 
+        0 32px 0 -1px #999, 0 64px 0 -1px #999, 0 96px 0 -1px #999, 0 128px 0 -1px #999, 
+        0 160px 0 -1px #999, 0 192px 0 -1px #999, 0 224px 0 -1px #999, 0 256px 0 -1px #999, 
+        0 288px 0 -1px #999, 0 320px 0 -1px #999, 0 352px 0 -1px #999, 0 384px 0 -1px #999,
+        0 416px 0 -1px #999, 0 448px 0 -1px #999, 0 480px 0 -1px #999;
+}
+
+/* TÍTULO Y NOTA ADHESIVA */
 .main-title {
+    position: relative;
     text-align: center;
     font-size: 2.2rem;
-    font-weight: 800;
-    letter-spacing: 10px;
-    margin-bottom: 2.5rem;
-    color: #F2F0FF;
-    position: relative;
-    padding-bottom: 0.8rem;
-    text-shadow: 0 2px 20px rgba(107, 90, 205, 0.3);
+    font-weight: bold;
+    color: #2c2825; 
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.1);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-style: wavy; 
 }
 
-.title-bar {
+/* 3. NOTA POST-IT (Pegada en la esquina superior derecha del cuaderno) */
+.main-title::before {
+    content: '¡Aprobar\A con 20!';
+    white-space: pre;
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #A79BEE, #D6D0FF, #F2F0FF, transparent);
-    border-radius: 3px;
-    box-shadow: 0 0 20px rgba(167, 155, 238, 0.4);
+    top: -50px;
+    right: -40px;
+    width: 100px;
+    height: 100px;
+    background: #ff7eb9; /* Rosa neón */
+    transform: rotate(12deg);
+    padding: 15px 10px;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    text-align: center;
+    line-height: 1.4;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.15), inset 0px -10px 15px rgba(0,0,0,0.05);
+    border-bottom-right-radius: 25px 5px; /* Efecto de papel doblado en la esquina */
+    z-index: 10;
+    text-shadow: none;
+    text-decoration: none;
 }
 
+/* PANEL DE VARIABLES */
 .variables-panel {
     display: flex;
-    align-items: stretch;
-    justify-content: center;
-    gap: 0.8rem;
-    margin-bottom: 2rem;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 3rem;
+    gap: 1rem;
 }
 
 .variable-card {
-    flex: 1;
-    min-width: 0;
-    background: rgba(242, 240, 255, 0.06);
-    border-radius: 1.8rem;
-    padding: 1.5rem 0.8rem;
-    border: 1px solid rgba(242, 240, 255, 0.08);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.variable-card:hover {
-    background: rgba(242, 240, 255, 0.12);
-    border-color: rgba(167, 155, 238, 0.3);
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px -10px rgba(46, 42, 102, 0.4);
+    gap: 0.8rem;
+    padding: 1rem;
 }
 
 .variable-label {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: rgba(242, 240, 255, 0.5);
-    background: rgba(242, 240, 255, 0.05);
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    border: 1px solid rgba(242, 240, 255, 0.06);
-    white-space: nowrap;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #3b352f;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 0.2rem 0.8rem;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.1); 
 }
 
 .variable-controls {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    width: 100%;
-    justify-content: center;
+    gap: 0.5rem;
 }
 
 .variable-input {
     min-width: 60px;
-    max-width: 200px;
-    width: auto;
-    height: 52px;
-    font-size: 1.8rem;
-    font-weight: 700;
+    max-width: 140px;
+    height: 45px;
+    font-size: 2rem;
     text-align: center;
-    background: rgba(242, 240, 255, 0.06);
-    border: 2px solid rgba(242, 240, 255, 0.08);
-    border-radius: 1rem;
-    color: #F2F0FF;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid #2c2825; 
+    color: #1a1816;
     font-family: inherit;
-    transition: all 0.3s ease;
+    font-weight: bold;
     outline: none;
-    padding: 0 0.8rem;
-    flex-shrink: 1;
-    overflow: visible;
-    text-overflow: clip;
+    transition: all 0.3s ease;
 }
 
 .variable-input:focus {
-    border-color: #A79BEE;
-    box-shadow: 0 0 0 4px rgba(167, 155, 238, 0.15);
-    background: rgba(242, 240, 255, 0.1);
+    border-bottom-color: #3b82f6; 
+    transform: translateY(-2px); 
 }
 
 .variable-input::-webkit-inner-spin-button,
@@ -158,234 +227,131 @@ body::after {
     margin: 0;
 }
 
-.variable-input[type=number] {
-    -moz-appearance: textfield;
-}
-
-.variable-input::placeholder {
-    color: rgba(242, 240, 255, 0.25);
-}
-
+/* BOTONES +/- */
 .control-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    font-size: 1.3rem;
-    font-weight: 700;
+    width: 38px;
+    height: 38px;
+    border-radius: 5px 12px 6px 15px; 
+    font-size: 1.5rem;
     font-family: inherit;
+    font-weight: bold;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    line-height: 1;
-    flex-shrink: 0;
+    background-color: transparent;
+    border: 2px solid #2c2825;
+    color: #2c2825;
+    box-shadow: 2px 2px 0px #2c2825; 
+    transition: all 0.1s ease;
 }
 
 .control-btn:active {
-    transform: scale(0.92);
-}
-
-.btn-plus {
-    background: linear-gradient(135deg, #6B5ACD, #A79BEE);
-    color: #F2F0FF;
-    box-shadow: 0 4px 15px rgba(107, 90, 205, 0.3);
+    transform: translate(2px, 2px); 
+    box-shadow: 0px 0px 0px #2c2825; 
 }
 
 .btn-plus:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 25px rgba(107, 90, 205, 0.5);
-    background: linear-gradient(135deg, #7B6ADD, #B7ABFE);
-}
-
-.btn-minus {
-    background: linear-gradient(135deg, #2E2A66, #6B5ACD);
-    color: #F2F0FF;
-    box-shadow: 0 4px 15px rgba(46, 42, 102, 0.3);
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #1d4ed8;
+    border-color: #1d4ed8;
 }
 
 .btn-minus:hover {
-    transform: scale(1.08);
-    box-shadow: 0 6px 25px rgba(46, 42, 102, 0.5);
-    background: linear-gradient(135deg, #3E3A76, #7B6ADD);
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #b91c1c;
+    border-color: #b91c1c;
 }
 
 .central-operator {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    font-weight: 800;
-    color: rgba(242, 240, 255, 0.2);
-    flex-shrink: 0;
-    user-select: none;
-    min-width: 40px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2c2825;
+    margin: 0 0.5rem;
 }
 
+/* ZONA DEL RESULTADO Y BORRADOR */
 .result-panel {
-    background: rgba(242, 240, 255, 0.06);
-    border-radius: 2rem;
-    padding: 2rem;
-    border: 1px solid rgba(242, 240, 255, 0.08);
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 0.5rem;
+    border: 3px solid #2c2825;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    background-color: rgba(255, 235, 153, 0.3); 
+    animation: float 4s ease-in-out infinite;
 }
 
-.result-panel:hover {
-    background: rgba(242, 240, 255, 0.1);
-    border-color: rgba(167, 155, 238, 0.2);
-    box-shadow: 0 15px 40px -10px rgba(46, 42, 102, 0.3);
+/* 4. BORRADOR CLÁSICO (Tirado cerca del resultado) */
+.result-panel::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    right: -60px;
+    width: 65px;
+    height: 35px;
+    /* Mitad rosa, mitad azul, con una línea oscura de separación */
+    background: linear-gradient(110deg, #f48c8c 48%, #2c3e50 48%, #2c3e50 52%, #4a90e2 52%);
+    border-radius: 6px;
+    transform: rotate(-25deg);
+    box-shadow: 6px 6px 12px rgba(0,0,0,0.15), inset -2px -2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
 }
 
 .result-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: rgba(242, 240, 255, 0.4);
-    background: rgba(242, 240, 255, 0.04);
-    padding: 0.3rem 1rem;
-    border-radius: 20px;
-    border: 1px solid rgba(242, 240, 255, 0.06);
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #4a453f;
+    background: #faf8f2;
+    padding: 0 10px;
+    margin-top: -30px; 
 }
 
 .result-value {
     font-size: 4.5rem;
-    font-weight: 800;
-    line-height: 1.2;
-    color: #F2F0FF;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 40px rgba(167, 155, 238, 0.2);
+    font-weight: bold;
+    color: #000;
     word-break: break-all;
     text-align: center;
-    max-width: 100%;
-    padding: 0 0.5rem;
+    line-height: 1;
+    text-shadow: 1px 2px 2px rgba(0,0,0,0.3);
 }
 
-@media (max-width: 640px) {
-    .wrapper {
-        padding: 1.8rem;
-        border-radius: 2rem;
-        max-width: 100%;
-    }
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-3px) rotate(0.5deg); }
+    100% { transform: translateY(0px); }
+}
 
-    .main-title {
-        font-size: 1.6rem;
-        letter-spacing: 6px;
-        margin-bottom: 2rem;
-    }
-
-    .variables-panel {
-        gap: 0.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .variable-card {
-        padding: 1rem 0.4rem;
-        border-radius: 1.4rem;
-        gap: 0.8rem;
-    }
-
-    .variable-input {
-        min-width: 50px;
-        max-width: 140px;
-        height: 42px;
-        font-size: 1.4rem;
-        border-radius: 0.8rem;
-        padding: 0 0.4rem;
-    }
-
-    .control-btn {
-        width: 34px;
-        height: 34px;
-        font-size: 1.1rem;
-    }
-
-    .central-operator {
-        font-size: 1.5rem;
-        min-width: 30px;
-    }
-
-    .result-panel {
-        padding: 1.5rem;
-        border-radius: 1.6rem;
-    }
-
-    .result-value {
-        font-size: 3.5rem;
-    }
-
-    .result-label {
-        font-size: 0.65rem;
-        letter-spacing: 3px;
-    }
-
-    .variable-label {
-        font-size: 0.6rem;
-        letter-spacing: 3px;
+/* =========================================
+   ADAPTACIÓN MÓVIL (Escondemos la decoración para que no estorbe)
+   ========================================= */
+@media (max-width: 900px) {
+    /* Ocultamos los objetos 3D extra en pantallas pequeñas para limpiar espacio */
+    body::before,
+    body::after,
+    .main-title::before,
+    .result-panel::after {
+        display: none !important;
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 600px) {
+    body { padding: 1rem; }
     .wrapper {
-        padding: 1.2rem;
-        border-radius: 1.5rem;
+        padding: 2.5rem 1.5rem 3rem 3rem; 
+        background-size: 100% 32px; 
     }
-
-    .main-title {
-        font-size: 1.2rem;
-        letter-spacing: 4px;
-        margin-bottom: 1.5rem;
-    }
-
-    .variables-panel {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-
-    .central-operator {
-        font-size: 1.3rem;
-        min-width: auto;
-        padding: 0.2rem 0;
-    }
-
-    .variable-card {
-        padding: 0.8rem 0.4rem;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        border-radius: 1.2rem;
-    }
-
-    .variable-label {
-        width: 100%;
-        text-align: center;
-    }
-
-    .variable-input {
-        min-width: 60px;
-        max-width: 100px;
-        height: 38px;
-        font-size: 1.2rem;
-        padding: 0 0.3rem;
-    }
-
-    .control-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 1rem;
-    }
-
-    .result-value {
-        font-size: 2.8rem;
-    }
-
-    .result-panel {
-        padding: 1.2rem;
-        border-radius: 1.2rem;
-    }
+    .wrapper::before { left: 10px; }
+    .wrapper::after { left: 2px; width: 15px; }
+    .main-title { font-size: 1.6rem; }
+    .variables-panel { flex-direction: column; gap: 1.5rem; }
+    .central-operator { transform: rotate(90deg); margin: 0; }
+    .variable-card { width: 100%; flex-direction: row; justify-content: space-between; padding: 0.5rem; }
+    .result-panel { width: 100%; }
+    .result-value { font-size: 3.5rem; }
 }
